@@ -1,0 +1,36 @@
+﻿@model IEnumerable<gz.Models.GuZheng>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+   
+
+@foreach (var item in Model) {
+   
+    <tr>
+       
+        <td>
+            <img width="150" height="150" src="@Url.Content(item.GZPhotoAddress)" />
+            </td>
+         <td>
+              @Html.DisplayFor(modelItem => item.GZCname)
+           </td>
+        <td>
+            @Html.ActionLink("详细", "Edit", new { id=item.GZNumber }) 
+        </td>
+        <td>
+            @Html.ActionLink("购买", "Buy", new { id=item.GZNumber }) 
+        </td>
+        
+    </tr>
+}
+
+</table>

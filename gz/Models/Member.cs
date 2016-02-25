@@ -23,11 +23,14 @@ public String MemberPostcode{get;set;}
     }
 
     public class MemberContext:DbContext
-    { 
+    {
+        public DbSet<Member> GetMember { get; set; }
         public MemberContext():base("ConnectionString")
     {
          Database.SetInitializer<MemberContext>(null);
         }
+
+        public System.Data.Entity.DbSet<gz.Models.GuZheng> GuZhengs { get; set; }
     
     }
 }

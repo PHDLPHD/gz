@@ -1,5 +1,13 @@
 ﻿<!DOCTYPE html>
 <html>
+    <script>
+        function SingOut() {
+            FormsAuthentication.SignOut();
+        }
+</script>
+    
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
@@ -21,17 +29,21 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("古筝商城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("古筝商城", "Index", "GuZheng", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("关于", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("联系方式", "Contact", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                 </ul>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("登录", "Index", "Home", new { @class = "navbar-brand" })</li>
+                 
+               
+                    <li>@Html.ActionLink("登录", "Login", "Home", new { area = "" },new { @class = "navbar-brand" })</li>
                     <li>@Html.ActionLink("/注册", "GetRegisterView", "Register", new { area = "" }, new { @class = "navbar-brand" })</li>
-                   
+                  
+                   </ul>
             </div>
+            
         </div>
     </div>
     <div class="container body-content">

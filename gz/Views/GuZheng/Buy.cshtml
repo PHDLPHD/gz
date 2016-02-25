@@ -1,0 +1,51 @@
+﻿@model gz.Models.GuZheng
+
+@{
+    ViewBag.Title = "购买";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+       
+        <dd>
+            @Html.DisplayFor(model => model.MaterialCname)
+        </dd>
+
+        
+
+       <dd>
+          <img width="150" height="150" src="@Url.Content(Model.GZPhotoAddress)" />
+            </dd>
+        
+
+        <dd>
+            @Html.DisplayFor(model => model.GZCname)
+        </dd>
+
+        
+
+        <dd>
+            @Html.DisplayFor(model => model.TechnologyCname)
+        </dd>
+
+        
+        <dd>
+            @Html.DisplayFor(model => model.GZprice)
+        </dd>
+
+    </dl>
+    
+</div>
+
+    @using (Html.BeginForm())
+    {
+     @Html.ValidationSummary(true)
+    <input type="number" name="number"  min="1" value="1"/>
+    <input type="text" name="id" value=@Model.GZNumber />
+    <input type="submit" value="确认购买" class="btn btn-default" />
+    }

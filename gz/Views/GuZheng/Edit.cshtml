@@ -1,0 +1,46 @@
+﻿@model gz.Models.GuZheng
+
+@{
+    ViewBag.Title = "古筝详细";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+       
+        <dd>
+            @Html.DisplayFor(model => model.MaterialCname)
+        </dd>
+
+        
+
+       <dd>
+          <img width="150" height="150" src="@Url.Content(Model.GZPhotoAddress)" />
+            </dd>
+        
+
+        <dd>
+            @Html.DisplayFor(model => model.GZCname)
+        </dd>
+
+        
+
+        <dd>
+            @Html.DisplayFor(model => model.TechnologyCname)
+        </dd>
+
+        
+        <dd>
+            @Html.DisplayFor(model => model.GZprice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("购买", "Buy", new { id = Model.GZNumber }) |
+
+</p>
