@@ -1,0 +1,48 @@
+﻿@model IEnumerable<gz.Models.GZClasssView>
+
+@{
+    ViewBag.Title = "课程";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<p>
+ 
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassIntroduction)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ClassPrice)
+        </th>
+        <th></th>
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassIntroduction)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ClassPrice)
+        </td>
+        <td>
+            @Html.ActionLink("预约", "Details", new { id=item.ClassID }) 
+        </td>
+    </tr>
+}
+</table>

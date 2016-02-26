@@ -1,0 +1,33 @@
+﻿@model IEnumerable<gz.Models.NewsParagraph>
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+    <br />
+    <br />
+    <br />
+    @ViewBag.message;
+<table class="table">
+    
+
+@foreach (var item in Model) {
+    <tr>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.newsparagraph)
+        </td>
+        <td>
+            @{
+            if(item.NewsTitleID!=null){
+            <img width="150" height="150" src="@Url.Content(item.PhotoAddress)" />}
+            }
+           
+        </td>
+       
+    </tr>
+}
+
+</table>

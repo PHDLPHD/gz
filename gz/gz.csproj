@@ -119,18 +119,24 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\GuZhengController.cs" />
-    <Compile Include="Controllers\GuZhengsController.cs" />
+    <Compile Include="Controllers\GZClasssViewController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClassAppointment.cs" />
+    <Compile Include="Models\Date.cs" />
+    <Compile Include="Models\GZClasssView.cs" />
     <Compile Include="Models\GuZheng.cs" />
-    <Compile Include="Models\GuZhengList.cs" />
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\NewsParagraph.cs" />
+    <Compile Include="Models\NewsTitle.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\Register.cs" />
+    <Compile Include="Models\Time.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -173,12 +179,11 @@
     <Content Include="Views\Home\Login.cshtml" />
     <Content Include="Views\GuZheng\Index.cshtml" />
     <Content Include="Views\GuZheng\Edit.cshtml" />
-    <Content Include="Views\GuZhengs\Create.cshtml" />
-    <Content Include="Views\GuZhengs\Delete.cshtml" />
-    <Content Include="Views\GuZhengs\Details.cshtml" />
-    <Content Include="Views\GuZhengs\Edit.cshtml" />
-    <Content Include="Views\GuZhengs\Index.cshtml" />
     <Content Include="Views\GuZheng\Buy.cshtml" />
+    <Content Include="Views\GZClasssView\Index.cshtml" />
+    <Content Include="Views\GZClasssView\Details.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

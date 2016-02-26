@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using gz.Models;
 using System.Net;
+using System.Runtime.Remoting.Contexts;
+
 
 
 
@@ -13,13 +15,14 @@ namespace gz.Controllers
 {
     public class GuZhengController : Controller
     {
+      
         // GET: GuZheng
         public ActionResult Index()
         {
 
             GuZhengDBcontext gz = new GuZhengDBcontext();
-            var GZList = gz.GetGuZheng.Where(p=>p.GZprice>0).ToList();
-            return View(GZList);
+           
+            return View(gz.GetGuZheng.ToList());
         }
 
         public ActionResult Buy(string id)
@@ -46,25 +49,36 @@ namespace gz.Controllers
             }
             else
             {
+
+            
                if(Request.IsAuthenticated)
                {
-                   return Content("<script >alert('购买成功！');</script >", "text/html");
+                  
+                
+                   MemberContext m = new MemberContext();
+                   string s = HttpContext.User.Identity.Name.ToString();
+                   var mem = m.GetMember.Where(p => p.MemberAccount.Equals(s)).ToList().First();
+                   OrderBDContext o = new OrderBDContext();
+                   o.Order.Add(new Order
+                   {
+                       OrderID=DateTime.Now.ToString("yyyyMMddHHmmssfff"),
+                       MemberID=mem.MemberID,
+                       GZNumber=id,
+                       OrderNum=number,
+                       
+                   });
+                   o.SaveChanges();
+                  
+                   return Content("<script >alert('购买成功！');window.location.href =''</script >", "text/html");
+                  
+                   
                }else
                {
+                   TempData["url"] = Request.Url.ToString();
                    return RedirectToAction("Login", "Home");
                }
             }
-            //if(Request.IsAuthenticated)
-            //{
-            //    string s=HttpContext.User.Identity.Name;
-
-            //    return Content("<script >alert('购买成功！');</script >", "text/html");
-            //}
-            //else
-            //{
-            //    string url = Request.Url.ToString();
-            //    return RedirectToAction("Login", "Home");
-            //}
+           
         }
         public ActionResult Edit(string id)
         {
@@ -82,4 +96,5 @@ namespace gz.Controllers
            
         }
     }
+  
 }

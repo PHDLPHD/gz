@@ -7,7 +7,7 @@
 
 <br />
 
-@using (Html.BeginForm("Login","Home",new { ReturnUrl = Request.QueryString["ReturnUrl"]}, FormMethod.Post)) 
+@using (Html.BeginForm("Login","Home", FormMethod.Post)) 
 {
 @Html.ValidationSummary()
     @Html.AntiForgeryToken()
@@ -31,7 +31,7 @@
                 @Html.ValidationMessageFor(model => model.MemberPassWord, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <div>@ViewBag.url</div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="登录" class="btn btn-default" />

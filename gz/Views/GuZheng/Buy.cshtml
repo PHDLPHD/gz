@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+</script>
 
 <div>
    
@@ -42,10 +42,10 @@
     
 </div>
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Buy","GuZheng",new { id = Model.GZNumber}, FormMethod.Post))
     {
-     @Html.ValidationSummary(true)
+   
     <input type="number" name="number"  min="1" value="1"/>
-    <input type="text" name="id" value=@Model.GZNumber />
-    <input type="submit" value="确认购买" class="btn btn-default" />
+    
+    <input type="submit" value="确认购买" class="btn btn-default" name="submi"/>
     }

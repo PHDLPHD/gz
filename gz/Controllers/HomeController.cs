@@ -8,15 +8,22 @@ using System.Web.Security;
 
 namespace gz.Controllers
 {
+    
     public class HomeController : Controller
     {
+        
+        public ActionResult SingOut()
+        {
+            FormsAuthentication.SignOut();
+            return View("Index");
+        }
            public ActionResult Login()
         {
          //   string url = Request.Url.ToString();
             return View("Login");
         }
         [HttpPost]
-           public ActionResult Login(Login log, string returnUrl)
+           public ActionResult Login(Login log)
            {
                ModelState.AddModelError("UserName", "用户名不能为空");
                MemberContext mem = new MemberContext();
@@ -32,15 +39,22 @@ namespace gz.Controllers
                     ModelState.AddModelError("MemberAccount", "账号或密码错误！");
                 }else
                 {
+                    
                     Response.Cookies.Remove(log.MemberAccount);
                     //记住登录状态
                     FormsAuthentication.SetAuthCookie(log.MemberAccount,true);
+                    string returnUrl = TempData["url"].ToString();
+                    if (returnUrl != null || !returnUrl.Equals(""))
+                    {
+                        return Redirect(returnUrl);
+                    }
+                    else 
                     return View("Index");
                     //if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
 
                     //   && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
                     //{
-                    //    return Redirect(returnUrl);
+                    //    return Redirect(returnUrl);,new { ReturnUrl =ViewBag.url}
 
                     //}
 
@@ -73,5 +87,8 @@ namespace gz.Controllers
 
             return View();
         }
+        
+          
+        
     }
 }

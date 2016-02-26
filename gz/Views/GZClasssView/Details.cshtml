@@ -1,0 +1,68 @@
+﻿@model gz.Models.GZClasssView
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+
+<br />
+
+<br />
+
+<br />
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+           @Html.Label("课程名称：")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassName)
+        </dd>
+
+       <dt>
+           @Html.Label("课程介绍：")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassIntroduction)
+        </dd>
+
+       
+        <dt>
+           @Html.Label("课程类型：")
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ClassTypeName)
+        </dd>
+
+        <dt>
+           @Html.Label("价格：")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClassPrice)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @using (Html.BeginForm("Details","GZClasssView",new { id = Model.ClassID }, FormMethod.Post)) 
+    {
+    <div>  
+    <span>@Html.Label("请选择日期：")</span>  
+   @Html.DropDownList("DateList", ViewData["DateList"] as SelectList,"--请选择--",new { @class = "my-select-css-class" } )
+</div> 
+    <div>  
+    <span>@Html.Label("请选择时间：")</span>  
+    @Html.DropDownList("TimeList", ViewData["TimeList"] as SelectList,"--请选择--",new { @class = "my-select-css-class" } )
+</div> 
+    <input type="submit" value="预约"/>
+    }
+   
+</p>
