@@ -5,32 +5,32 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+
+<div  class="home_bg1_bg" style="height:auto;background-repeat:repeat-y;margin:auto" >
    
+    <div class="guzheng_shop_index_content">
+        <div class="h_title"> <img src="~/Picture/home_pro_head.png" /></div>
+        <table class="table" style="background-color:#26150a">
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img width="150" height="150" src="@Url.Content(item.GZPhotoAddress)" />
+                    </td>
+                    <td class="guzheng_shop_index_content_font">
+                        @Html.DisplayFor(modelItem => item.GZCname)
+                    </td>
+                    <td class="guzheng_shop_index_content_font">
+                        @Html.ActionLink("详细", "Edit", new { id = item.GZNumber })
+                    </td>
+                    <td class="guzheng_shop_index_content_font">
+                        @Html.ActionLink("购买", "Buy", new { id = item.GZNumber })
+                    </td>
 
-@foreach (var item in Model) {
-   
-    <tr>
-       
-        <td>
-            <img width="150" height="150" src="@Url.Content(item.GZPhotoAddress)" />
-            </td>
-         <td>
-              @Html.DisplayFor(modelItem => item.GZCname)
-           </td>
-        <td>
-            @Html.ActionLink("详细", "Edit", new { id=item.GZNumber }) 
-        </td>
-        <td>
-            @Html.ActionLink("购买", "Buy", new { id=item.GZNumber }) 
-        </td>
-        
-    </tr>
-}
+                </tr>
+            }
 
-</table>
+        </table>
+    </div>
+</div>

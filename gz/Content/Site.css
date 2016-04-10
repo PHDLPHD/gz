@@ -1,12 +1,24 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+   
+    width:1200px;
+    margin:auto;
+   
+}
+
+.font_color_style{
+    color:#7e5b47;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
+    align-content:center;
+   
+    height:300px;
+    margin:auto;
+    margin-top:10px;
     padding-left: 15px;
     padding-right: 15px;
+   background-color:#ff6a00;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -22,3 +34,331 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.menu{
+    width:300px;
+    height:300px;
+    background-color:green;
+}
+
+
+.about-p{
+    color:red;
+    width:300px;
+}
+
+
+.body-bottom{
+    width: 100%;
+padding-bottom:20px;
+background:url(../Picture/page_bottom_bg.jpg.png);
+overflow:hidden;
+margin:auto;
+}
+
+.body-bottom-p{
+     
+    text-align: center;
+   color: white;
+    text-align: center;
+    line-height: 8px;
+    padding-top: 8px;
+  margin-bottom:10px;
+    margin: auto;
+    text-transform: uppercase;
+}
+
+.body-page-head
+{
+    width:100%;
+    height:113px;
+    background:url(../Picture/menu_bg.jpg);
+    overflow:hidden;
+}
+
+.body-page-head-center{
+   width:800px;
+    margin:auto;
+    padding-top:20px;
+}
+
+.page_logo{
+    float:left;
+    width:200px;
+    background-color:white;
+}
+
+.menu_li{
+    width: 100px;
+    float: left;
+    color: #a77e67;
+    font-size: 14px;
+    text-align: center;
+    border-right: solid 1px #493426;
+    height: 48px;
+    line-height: 16px;
+}
+
+.body-page-head-login{
+    width:160px;
+    float:right;
+}
+
+
+#body_details{
+  POSITION: relative;
+    PADDING-BOTTOM: 0px;
+    PADDING-LEFT: 0px;
+    WIDTH: 100%;
+    PADDING-RIGHT: 0px;
+    HEIGHT: 523px;
+    OVERFLOW: hidden;
+    PADDING-TOP: 0px;
+    text-align: center;
+    margin: auto;
+}
+
+#body_details_slideshow_photo {
+    text-align: center;
+    POSITION: absolute;
+    WIDTH: 100%;
+    HEIGHT: 100%;
+    CURSOR: pointer;
+}
+#slideshow_footbar {
+    Z-INDEX: 5;
+    POSITION: absolute;
+    WIDTH: 100%;
+    BOTTOM: 10px;
+    HEIGHT: 30px;
+}
+
+    #slideshow_footbar .slideshow-bt {
+        BACKGROUND-COLOR: #d2d3d4;
+        MARGIN: 4px 4px 0px 0px;
+        WIDTH: 40px;
+        DISPLAY: inline;
+        FLOAT: right;
+        HEIGHT: 10px;
+        FONT-SIZE: 0px;
+    }
+
+.home_bg1_bg{
+    width:100%;
+height:576px;
+background:url(../Picture/home_bg1_bg.jpg) top center no-repeat;
+overflow:hidden;
+margin:auto;
+    }
+
+ .home_bg1 {
+    width: 1000px;
+    height: 576px;
+    background:#493426;
+    margin: auto;
+}
+
+
+ .home_bg2_bg{
+width:100%;
+height:493px;
+background:url(../Picture/home_bg2_bg.jpg) top center no-repeat;
+overflow:hidden;
+margin:auto;
+    }
+
+ .home_bg2 {
+    width: 1000px;
+    height: 493px;
+   background-color:#26150a;
+    margin: auto;
+}
+
+ .home_mszf {
+    width: 680px;
+    float: left;
+    padding-top: 30px;
+}
+
+ .home_sftd {
+    width: 291px;
+    float: right;
+    padding-top: 30px;
+}
+
+  .home_sftd_bg {
+    width: 291px;
+   height:228px;
+  font-size:20px;
+}
+
+
+  /*联系我们界面样式开始*/
+  .contact{
+      background-color:#3d2415;
+      width:1200px;
+      height:600px;
+      margin:auto;
+  }
+
+  .contact_main{
+      width:1000px;
+      margin:auto;
+      padding-top:20px;
+      
+  }
+  .contact_main_left{
+      width: 220px;
+    float: left;
+    background: #442919;
+    height: 300px;
+  }
+
+    .contact_main_right{
+    width:760px;
+    float:right;
+    background: #442919;
+  }
+
+    .contact_main_right_head{
+    width: 96%;
+    margin: auto;
+    height: 42px;
+    line-height: 42px;
+    text-align: left;
+    color: #7e5b47;
+    }
+/**联系我们界面样式结束*/
+
+
+
+
+    /*登录界面样式开始*/
+    .div_content_group{
+        width:100%;
+        height:250px;
+        margin:auto;
+        background-color:#26150a;
+    }
+   .div_content_group_content{
+       padding-top:20px;
+        width:600px;
+        margin:auto;
+    }
+
+    .login_group_input{
+        width:600px;
+        margin:auto;
+        padding-top:10px;
+        padding-bottom:10px;
+    }
+
+    .login_button_main{
+        width:100px;
+        margin:auto;
+    }
+    .login_button{
+       width:80%;height:35px;line-height:35px;background-color:#532615;border:none;margin-top:10px;
+     
+    }
+    /*登录界面样式结束*/
+
+    /*用户注册界面样式开始*/
+    .register
+    {
+        width:100%;
+        background-color:#26150a;
+        margin:auto;
+        margin-left:auto;
+        margin-right:auto;
+        height:500px;
+    }
+
+    .register_content{
+        width:1000px;
+        margin:auto;
+        padding-top:18px;
+    }
+
+    .register_content_group{
+        margin:auto;
+        margin-left:auto;
+        margin-right:auto;       
+        width:800px;
+    }
+
+    .form-control_desgin{
+        margin:auto;
+    width:800px;
+        border:none;
+        line-height:35px;
+        margin-top:8px;
+        margin-bottom:8px;
+    }
+    /*用户注册界面样式结束*/
+
+    /*古筝课程界面样式开始*/
+    .class_main{
+        width:1000px;
+        min-height:300px;
+        background-color:#26150a;
+        margin:auto;
+    }
+
+   .class_main_tb{
+       text-align:center;
+       vertical-align:middle;
+   }
+    /*古筝课程界面样式结束*/
+
+    /*古筝课程详情界面样式开始*/
+    .class_details
+    {
+        width:1000px;
+        height:800px;
+        margin:auto; 
+        margin-left:auto;
+        margin-right:auto;     
+        background-color:#26150a;
+    }
+
+    .class_details_title{
+       text-align:center;
+           height:auto;
+           padding-top:20px;
+           padding-bottom:20px;
+           color:#7e5b47;
+           font-size:18px;
+    }
+
+    .class_details_content{
+        width:600px;
+        margin:auto;
+    }
+
+    .class_details_check{
+        width:300px;
+        margin-top:20px;
+      margin-bottom:20px;
+    }
+    /*古筝课程详情界面样式结束*/
+
+    /*古筝商城界面样式开始*/
+    .guzheng_shop_index_content{
+          width:1000px;
+          margin:auto;
+          height:auto;
+    }
+  
+
+    .h_title{
+        padding-top:10px;
+        padding-bottom:10px;
+        height:80px;
+        background-color:#26150a;
+    }
+    .guzheng_shop_index_content_font{
+        font-size:18px;color:#7e5b47;
+    }
+    
+    /*古筝商城界面样式结束*/

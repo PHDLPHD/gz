@@ -5,42 +5,40 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
 
-<div>
-   
-    <hr />
-    <dl class="dl-horizontal">
+
+<div class="home_bg2_bg"> 
+    <h2>古筝商品详情</h2>
+    <div style="width:800px;margin:auto;background-color:red">
+        <div style="float:left">
+            <img width="250" height="250" src="@Url.Content(Model.GZPhotoAddress) " />
+        </div>
+        <div style="float:right;background-color:red;width:550px">
+            <div>
+                <div style="float:left;width:300px;background-color:green"><p>材质</p></div>
+              <div style="float:right;width:250px"><p>@Html.DisplayFor(model => model.MaterialCname)</p></div> 
+            </div>
+
+            <div>
+                @Html.DisplayFor(model => model.GZCname)
+            </div>
+
+
+            <div>
+                @Html.DisplayFor(model => model.TechnologyCname)
+            </div>
+
+
+            <div>
+                @Html.DisplayFor(model => model.GZprice)
+            </div>
+            <div>@Html.ActionLink("购买", "Buy", new { id = Model.GZNumber }) </div>
+        </div>
+        
+          
+
        
-        <dd>
-            @Html.DisplayFor(model => model.MaterialCname)
-        </dd>
-
-        
-
-       <dd>
-          <img width="150" height="150" src="@Url.Content(Model.GZPhotoAddress)" />
-            </dd>
-        
-
-        <dd>
-            @Html.DisplayFor(model => model.GZCname)
-        </dd>
-
-        
-
-        <dd>
-            @Html.DisplayFor(model => model.TechnologyCname)
-        </dd>
-
-        
-        <dd>
-            @Html.DisplayFor(model => model.GZprice)
-        </dd>
-
-    </dl>
+    </div>
+   
 </div>
-<p>
-    @Html.ActionLink("购买", "Buy", new { id = Model.GZNumber }) |
 
-</p>

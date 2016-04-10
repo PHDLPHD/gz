@@ -7,34 +7,25 @@
 
 <br />
 
-@using (Html.BeginForm("Login","Home", FormMethod.Post)) 
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
 {
-@Html.ValidationSummary()
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.MemberAccount, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.MemberAccount, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MemberAccount, "", new { @class = "text-danger" })
+    <div class="div_content_group">
+        <div class="div_content_group_content">
+            <h4 style="margin:auto;width:300px">用户登录</h4>
+            <div class="login_group_input">
+                @Html.EditorFor(model => model.MemberAccount, new { htmlAttributes = new { @class = "form-control_desgin", @placeholder = "账号" } })
+                @Html.ValidationMessageFor(model => model.MemberAccount, "*账号不能为空", new { @class = "text-danger" })
             </div>
-        </div>
+            <div class="login_group_input">
+                @Html.PasswordFor(model => model.MemberPassWord, new { @class = "form-control_desgin", @placeholder = "密码" })
+                @Html.ValidationMessageFor(model => model.MemberPassWord, "*密码不能为空", new { @class = "text-danger" })
+            </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.MemberPassWord, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.PasswordFor(model => model.MemberPassWord, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.MemberPassWord, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        <div>@ViewBag.url</div>
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="登录" class="btn btn-default" />
+
+            <div class="register_content">
+               
+                    <input type="submit" value="登 录" class="login_button" />
+                
             </div>
         </div>
     </div>

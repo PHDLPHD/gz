@@ -7,8 +7,12 @@ using gz.Models;
 
 namespace gz.Controllers
 {
+    /// <summary>
+    /// 课程预约
+    /// </summary>
     public class GZClasssViewController : Controller
     {
+        
         // GET: GZClasssView
         public ActionResult Index()
         {
@@ -19,19 +23,27 @@ namespace gz.Controllers
        
         public ActionResult Details(int id)
         {
+             if (Request.IsAuthenticated)//登录检测
+            {
             GZClasssViewDBcontext g = new GZClasssViewDBcontext();
+
             var gc = g.GZClasssView.Where(p => p.ClassID == id).First();
             DateDbcontext da = new DateDbcontext();
-            ViewData["DateList"] = new SelectList(da.date.ToList(), "DayID", "Day",1);
+            ViewData["DateList"] = new SelectList(da.date.ToList(), "DayID", "Day",2);
             TimeDbcontext ti = new TimeDbcontext();
             ViewData["TimeList"] = new SelectList(ti.time.ToList(), "TimeID", "time",2);
             return View(gc);
+            }
+             else
+             {
+                 TempData["url"] = Request.Url.ToString();
+                 return RedirectToAction("Login", "Home");
+             }
         }
         [HttpPost]
         public ActionResult Details(int id, int TimeList, int DateList)
         {
-            if (Request.IsAuthenticated)
-            {
+           
                 MemberContext m = new MemberContext();
                 string s = HttpContext.User.Identity.Name.ToString();
                 var mem = m.GetMember.Where(p => p.MemberAccount.Equals(s)).ToList().First();
@@ -46,15 +58,10 @@ namespace gz.Controllers
                 });
                 cl.SaveChanges();
 
-                return Content("<script >alert('预约成功！');window.location.href =''</script >", "text/html");
+                return Content("<script >alert('预约成功！');window.location.href ='/Home/Index'</script >", "text/html");
 
 
-            }
-            else
-            {
-                TempData["url"] = Request.Url.ToString();
-                return RedirectToAction("Login", "Home");
-            }
+           
         }
     }
 }

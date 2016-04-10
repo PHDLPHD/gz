@@ -13,6 +13,9 @@ using System.Runtime.Remoting.Contexts;
 
 namespace gz.Controllers
 {
+    /// <summary>
+    /// 古筝商城
+    /// </summary>
     public class GuZhengController : Controller
     {
       
@@ -27,6 +30,8 @@ namespace gz.Controllers
 
         public ActionResult Buy(string id)
         {
+              if(Request.IsAuthenticated)//登录检测
+               {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -38,6 +43,12 @@ namespace gz.Controllers
                 ViewBag.src = gzh.GZPhotoAddress;
                 return View(gzh);
             }
+               }
+              else
+              {
+                  TempData["url"] = Request.Url.ToString();
+                  return RedirectToAction("Login", "Home");
+              }
             
         }
            [HttpPost]
@@ -51,8 +62,7 @@ namespace gz.Controllers
             {
 
             
-               if(Request.IsAuthenticated)
-               {
+             
                   
                 
                    MemberContext m = new MemberContext();
@@ -72,11 +82,7 @@ namespace gz.Controllers
                    return Content("<script >alert('购买成功！');window.location.href =''</script >", "text/html");
                   
                    
-               }else
-               {
-                   TempData["url"] = Request.Url.ToString();
-                   return RedirectToAction("Login", "Home");
-               }
+              
             }
            
         }

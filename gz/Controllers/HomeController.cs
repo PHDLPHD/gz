@@ -8,20 +8,40 @@ using System.Web.Security;
 
 namespace gz.Controllers
 {
-    
+    /// <summary>
+    /// 主页
+    /// </summary>
     public class HomeController : Controller
     {
-        
+        /// <summary>
+        /// 退出登录
+        /// </summary>
+        /// <returns></returns>
         public ActionResult SingOut()
         {
             FormsAuthentication.SignOut();
-            return View("Index");
+            Response.Redirect("Index"); 
+            if (Request.IsAuthenticated)//登录检测
+            {
+                return null;
+            }
+            else
+                return View("Index");
         }
+        /// <summary>
+        /// 登录页面
+        /// </summary>
+        /// <returns></returns>
            public ActionResult Login()
         {
          //   string url = Request.Url.ToString();
             return View("Login");
         }
+        /// <summary>
+        /// 登录
+        /// </summary>
+        /// <param name="log"></param>
+        /// <returns></returns>
         [HttpPost]
            public ActionResult Login(Login log)
            {
@@ -43,13 +63,20 @@ namespace gz.Controllers
                     Response.Cookies.Remove(log.MemberAccount);
                     //记住登录状态
                     FormsAuthentication.SetAuthCookie(log.MemberAccount,true);
-                    string returnUrl = TempData["url"].ToString();
-                    if (returnUrl != null || !returnUrl.Equals(""))
+                    //返回登录前页面
+                  
+                    if (TempData["url"] != null )
                     {
-                        return Redirect(returnUrl);
+                        string url = TempData["url"].ToString();
+                        Response.Redirect(url); 
+                        return Redirect(url);
                     }
-                    else 
-                    return View("Index");
+                    else
+                    {
+                        Response.Redirect("Index"); 
+                        return View("Index");
+                    }
+                   
                     //if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
 
                     //   && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
@@ -69,18 +96,28 @@ namespace gz.Controllers
 
             return View("Login");
            }
+        /// <summary>
+        /// s首页
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Index()
         {
             return View();
         }
-
+        /// <summary>
+        /// 关于
+        /// </summary>
+        /// <returns></returns>
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
-
+        /// <summary>
+        /// 联系方式
+        /// </summary>
+        /// <returns></returns>
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

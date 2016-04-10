@@ -5,44 +5,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="home_bg1_bg">
+    <div class="class_main">
+        <table style="width:100%;height:576px;padding-top:20px">
+            <tr style="width:250px;">
+                <td class="class_main_tb">
+                    课程名称
+                </td>
+                <td class="class_main_tb">
+                    课程描述
+                </td>
+                <td class="class_main_tb">
+                    课程类型
+                </td>
+                <td class="class_main_tb">
+                    课程价格
+                </td>
+            </tr>
 
 
-<p>
- 
-</p>
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ClassName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClassIntroduction)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClassTypeName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ClassPrice)
-        </th>
-        <th></th>
-    </tr>
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClassName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClassIntroduction)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClassTypeName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ClassPrice)
-        </td>
-        <td>
-            @Html.ActionLink("预约", "Details", new { id=item.ClassID }) 
-        </td>
-    </tr>
-}
-</table>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="class_main_tb">
+                        @Html.DisplayFor(modelItem => item.ClassName)
+                    </td>
+                    <td class="class_main_tb">
+                        @Html.DisplayFor(modelItem => item.ClassIntroduction)
+                    </td>
+                    <td class="class_main_tb">
+                        @Html.DisplayFor(modelItem => item.ClassTypeName)
+                    </td>
+                    <td class="class_main_tb">
+                        @Html.DisplayFor(modelItem => item.ClassPrice)
+                    </td>
+                    <td class="class_main_tb">
+                        @Html.ActionLink("预约", "Details", new { id = item.ClassID })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

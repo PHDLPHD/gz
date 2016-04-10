@@ -146,6 +146,17 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Picture\banner1.jpg" />
+    <Content Include="Picture\banner2.jpg" />
+    <Content Include="Picture\banner3.jpg" />
+    <Content Include="Picture\home_ad.jpg" />
+    <Content Include="Picture\home_bg1_bg.jpg" />
+    <Content Include="Picture\home_bg2_bg.jpg" />
+    <Content Include="Picture\home_mszf_head.png" />
+    <Content Include="Picture\home_pro_head.png" />
+    <Content Include="Picture\home_sftd_head.png" />
+    <Content Include="Picture\menu_bg.jpg" />
+    <Content Include="Picture\page_bottom_bg.jpg.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -187,7 +198,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Picture\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
