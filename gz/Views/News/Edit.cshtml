@@ -5,29 +5,27 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<br />
-    <br />
-    <br />
-    <br />
-    @ViewBag.message;
-<table class="table">
-    
+<div class="home_bg1_bg" style="height:auto;background-repeat:repeat-y;margin:auto">
+    <div style="width:800px;margin:auto;">
+        <h4>@ViewBag.message;</h4>
 
-@foreach (var item in Model) {
-    <tr>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.newsparagraph)
-        </td>
-        <td>
-            @{
-            if(item.NewsTitleID!=null){
-            <img width="150" height="150" src="@Url.Content(item.PhotoAddress)" />}
+        @foreach (var item in Model)
+        {
+            if(item.newsparagraph!=null)
+            { 
+            <div style="width:600px;margin-bottom:10px">
+                <div style="margin:20px;">@Html.DisplayFor(modelItem => item.newsparagraph)</div>
+            </div>
+          
+            } 
+            if (item.PhotoAddress != null)
+            {
+                <div style="width:150px;margin-bottom:10px">
+                    <img width="150" height="150" src="@Url.Content(item.PhotoAddress)" />
+                </div>
             }
-           
-        </td>
-       
-    </tr>
-}
+        }
+               
+    </div>
 
-</table>
+</div>

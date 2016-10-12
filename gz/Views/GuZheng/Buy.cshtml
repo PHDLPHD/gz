@@ -5,47 +5,52 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-</script>
 
-<div>
-   
-    <hr />
-    <dl class="dl-horizontal">
-       
-        <dd>
-            @Html.DisplayFor(model => model.MaterialCname)
-        </dd>
 
-        
+<div class="home_bg2_bg"style="margin:auto">
+    <div style="width:800px;margin:auto;margin-bottom:30px;">
+    <h4>木木古筝坊</h4>
+        <div style="float:left;margin-bottom:40px"><img width="250" height="250" src="@Url.Content(Model.GZPhotoAddress)" /></div>
+        <div style="float:right;width:550px;height:250px;">
+            <div>
+                <div style="float:left;width:300px;height:50px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto"><p>材质</p></div>
+                <div style="float:right;width:250px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto"><p>@Html.DisplayFor(model => model.MaterialCname)</p></div>
+            </div>
 
-       <dd>
-          <img width="150" height="150" src="@Url.Content(Model.GZPhotoAddress)" />
-            </dd>
-        
 
-        <dd>
-            @Html.DisplayFor(model => model.GZCname)
-        </dd>
+            <div>
+                <div style="float:left;width:300px;height:50px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto"><p>名称</p></div>
+                <div style="float:right;width:250px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto">
+                    <p>@Html.DisplayFor(model => model.GZCname)</p>
+                </div>
+            </div>
 
-        
 
-        <dd>
-            @Html.DisplayFor(model => model.TechnologyCname)
-        </dd>
+            <div>
+                <div style="float:left;width:300px;height:50px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto"><p>类型</p></div>
+                <div style="float:right;width:250px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto">
+                    <p>@Html.DisplayFor(model => model.TechnologyCname)</p>
+                </div>
+            </div>
 
-        
-        <dd>
-            @Html.DisplayFor(model => model.GZprice)
-        </dd>
 
-    </dl>
-    
+            <div>
+                <div style="float:left;width:300px;height:50px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto"><p>价格</p></div>
+                <div style="float:right;width:250px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto">
+                    <p>@Html.DisplayFor(model => model.GZprice)</p>
+                </div>
+            </div>
+            <div style="margin:auto;width:250px">
+                @using (Html.BeginForm("Buy", "GuZheng", new { id = Model.GZNumber }, FormMethod.Post))
+                {
+
+                    <input type="number" name="number" min="1" value="1" />
+
+                    <input type="submit" value="确认购买" class="btn btn-default" name="submi" />
+                }
+            </div>
+
+        </div>
+    </div> 
+      <div style="margin:auto;margin-top:30px;padding-top:30px;width:1000px"><img src="~/Picture/home_ad.jpg" /></div> 
 </div>
-
-    @using (Html.BeginForm("Buy","GuZheng",new { id = Model.GZNumber}, FormMethod.Post))
-    {
-   
-    <input type="number" name="number"  min="1" value="1"/>
-    
-    <input type="submit" value="确认购买" class="btn btn-default" name="submi"/>
-    }

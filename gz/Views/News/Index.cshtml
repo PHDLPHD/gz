@@ -8,24 +8,33 @@
 
 
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.NewsTitleName)
-        </th>
-        <th></th>
-    </tr>
+<div class="home_bg1_bg" style="height:auto;background-repeat:repeat-y;margin:auto">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
+    <h4 style="width:300px;margin:auto;margin-top:20px;margin-bottom:20px">古筝的相关新闻</h4>
+    @foreach (var item in Model)
+    {
+        <div style="background-color:rebeccapurple;width:500px;margin:auto">
+
             @Html.DisplayFor(modelItem => item.NewsTitleName)
-        </td>
-        <td>
-            @Html.ActionLink("详细", "Edit", new { id=item.NewsTitleID,title= item.NewsTitleName}) |
-          
-        </td>
-    </tr>
-}
 
-</table>
+            @Html.ActionLink("详细", "Edit", new { id = item.NewsTitleID, title = item.NewsTitleName })
+        </div>
+    }
+
+    <div style="margin:auto;">
+        <h3 style="width:980px;margin:auto;margin-top:20px;margin-bottom:20px">艺术培训风采展示：</h3>
+        <div style="margin:auto;width:520px;margin-bottom:20px" > 
+            <div style="margin-right:20px;float:left">   <img src="~/Picture/banner1.jpg" width="150" height="150" ; /> </div>
+            <div style="margin-right:20px;float:left">   <img src="~/Picture/banner1.jpg" width="150" height="150" ; /> </div>
+            <div style="margin-right:20px;float:left">   <img src="~/Picture/banner1.jpg" width="150" height="150" ; /> </div>
+           <div style="clear:both"></div>
+         </div> 
+        <div style="margin:auto;width:520px;margin-bottom:20px">
+            <div style="margin-right:20px;float:left">   <img src="~/Picture/banner1.jpg" width="150" height="150" ; /> </div>
+            <div style="margin-right:20px;float:left">   <img src="~/Picture/banner1.jpg" width="150" height="150" ; /> </div>
+            <div style="margin-right:20px;float:left">   <img src="~/Picture/banner1.jpg" width="150" height="150" ; /> </div>
+            <div style="clear:both"></div>
+            </div>
+        </div>
+</div>
+

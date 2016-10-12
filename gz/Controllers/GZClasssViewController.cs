@@ -23,8 +23,7 @@ namespace gz.Controllers
        
         public ActionResult Details(int id)
         {
-             if (Request.IsAuthenticated)//登录检测
-            {
+            
             GZClasssViewDBcontext g = new GZClasssViewDBcontext();
 
             var gc = g.GZClasssView.Where(p => p.ClassID == id).First();
@@ -33,17 +32,13 @@ namespace gz.Controllers
             TimeDbcontext ti = new TimeDbcontext();
             ViewData["TimeList"] = new SelectList(ti.time.ToList(), "TimeID", "time",2);
             return View(gc);
-            }
-             else
-             {
-                 TempData["url"] = Request.Url.ToString();
-                 return RedirectToAction("Login", "Home");
-             }
+           
         }
         [HttpPost]
         public ActionResult Details(int id, int TimeList, int DateList)
         {
-           
+            if (Request.IsAuthenticated)//登录检测
+            {
                 MemberContext m = new MemberContext();
                 string s = HttpContext.User.Identity.Name.ToString();
                 var mem = m.GetMember.Where(p => p.MemberAccount.Equals(s)).ToList().First();
@@ -60,7 +55,12 @@ namespace gz.Controllers
 
                 return Content("<script >alert('预约成功！');window.location.href ='/Home/Index'</script >", "text/html");
 
-
+            }
+            else
+            {
+                TempData["url"] = Request.Url.ToString();
+                return RedirectToAction("Login", "Home");
+            }
            
         }
     }

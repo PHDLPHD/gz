@@ -1,96 +1,45 @@
-﻿@using gz.Controllers;
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
-<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 应用程序</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />  
 </head>
 <body>
-  
-    <div>
-        <div class="body-page-head">
-            <div class="body-page-head-center">
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li>@Html.ActionLink("首页", "Index", "Home", new { area = "" }, new { @class = "menu_li" })</li>
-                        <li>@Html.ActionLink("古筝培训", "Index", "GZClasssView", new { area = "" }, new { @class = "menu_li" })</li>
-                        <li>@Html.ActionLink("古筝商城", "Index", "GuZheng", new { area = "" }, new { @class = "menu_li" })</li>
-                        <li>@Html.ActionLink("关于", "About", "Home", new { area = "" }, new { @class = "menu_li" })</li>
-                        <li>@Html.ActionLink("艺培风采", "Index", "News", new { area = "" }, new { @class = "menu_li" })</li>
-                        <li>@Html.ActionLink("联系方式", "Contact", "Home", new { area = "" }, new { @class = "menu_li" })</li>
-                    </ul>
-                </div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("首页", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="body-page-head-login">
+            <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @{
-                        if (!Request.IsAuthenticated)
-                        {
-                            <li>@Html.ActionLink("登录", "Login", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                            <li>@Html.ActionLink("注册", "GetRegisterView", "Register", new { area = "" }, new { @class = "navbar-brand" })</li>
-                        }
-                        else
-                        {
-                            <li>@Html.ActionLink("注销", "SingOut", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
-                        }
-                    }
+                    <li>@Html.ActionLink("古筝商城", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("关于", "About", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("联系方式", "Contact", "Home", new { area = "" }, new { @class = "navbar-brand" })</li>
                 </ul>
-            </div>    
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("登录", "Index", "Home", new { @class = "navbar-brand" })</li>
+                    <li>@Html.ActionLink("/注册", "GetRegisterView", "Register", new { area = "" }, new { @class = "navbar-brand" })</li>
+                   
+            </div>
         </div>
     </div>
-
-    <div id="body_details">
-        <div id="body_details_slideshow_photo">
-            <a href="#" index="1" onfocus="" style="z-index:1;display:block">
-                <img src="~/Picture/banner1.jpg" />
-            </a>
-            <a href="#" index="2" onfocus="" style="z-index:1;display:block">
-                <img src="~/Picture/banner2.jpg" />
-            </a>
-            <a href="#" index="3" onfocus="" style="z-index:1;display:block">
-                <img src="~/Picture/banner3.jpg" />
-            </a>
-        </div>
-
-        <div id="slideshow_footbar">
-             <div style="width:250px;margin:auto">
-           
-                 <div class="slideshow-bt" index="3"></div>
-                 <div class="slideshow-bt" index="2"></div>
-                 <div class="slideshow-bt" index="1"></div>
-             </div>
-        </div>
-     </div>
-
-
-    
-
-
-
-
-
-
-
-
-    <div class="body-bottom">
-       @RenderBody()
+    <div class="container body-content">
+        @RenderBody()
         <hr />
         <footer>
-          
-           <p class="body-bottom-p">&copy; @DateTime.Now.Year - 林XX古筝培训中心</p>
-            <p class="body-bottom-p">地址：广州市从化区广州大学华软学院   电话：12345678901</p>
+            <p>&copy; @DateTime.Now.Year - XXX古筝培训中心</p>
         </footer>
-       
-     
     </div>
 
     @Scripts.Render("~/bundles/jquery")

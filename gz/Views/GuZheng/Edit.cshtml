@@ -8,37 +8,47 @@
 
 
 <div class="home_bg2_bg"> 
-    <h2>古筝商品详情</h2>
-    <div style="width:800px;margin:auto;background-color:red">
+    <div style="margin:auto;width:990px;margin-bottom:20px;margin-top:10px"><h4>古筝商品详情</h4></div>
+       
+    <div style="width:800px;margin:auto;">
         <div style="float:left">
             <img width="250" height="250" src="@Url.Content(Model.GZPhotoAddress) " />
         </div>
-        <div style="float:right;background-color:red;width:550px">
+        <div style="float:right;width:550px;height:250px;">
             <div>
-                <div style="float:left;width:300px;background-color:green"><p>材质</p></div>
-              <div style="float:right;width:250px"><p>@Html.DisplayFor(model => model.MaterialCname)</p></div> 
+                <div style="float:left;width:300px;height:50px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto"><p>材质</p></div>
+              <div style="float:right;width:250px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto"><p>@Html.DisplayFor(model => model.MaterialCname)</p></div> 
             </div>
 
             <div>
-                @Html.DisplayFor(model => model.GZCname)
-            </div>
+                <div style="float:left;width:300px;height:50px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto"><p>名称</p></div>
+                <div style="float:right;width:250px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto">
+                    <p>@Html.DisplayFor(model => model.GZCname)</p>
+                    </div>
+                </div>
 
 
             <div>
-                @Html.DisplayFor(model => model.TechnologyCname)
-            </div>
+                <div style="float:left;width:300px;height:50px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto"><p>类型</p></div>
+                <div style="float:right;width:250px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto">
+                    <p>@Html.DisplayFor(model => model.TechnologyCname)</p>
+                    </div>
+                </div>
 
 
             <div>
-                @Html.DisplayFor(model => model.GZprice)
-            </div>
-            <div>@Html.ActionLink("购买", "Buy", new { id = Model.GZNumber }) </div>
+                <div style="float:left;width:300px;height:50px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto"><p>价格</p></div>
+                <div style="float:right;width:250px;text-align:center;padding-top:20px;margin-bottom:20px;margin:auto">
+                    <p>@Html.DisplayFor(model => model.GZprice)</p>
+                    </div>
+                </div>
         </div>
-        
-          
-
-       
-    </div>
+    <div style="width:100px;float:right;margin-bottom:30px" >
    
+            @Html.ActionLink("购买", "Buy", new { id = Model.GZNumber })
+        </div>
+
+    </div>
+        <div style="width:1000px;margin:auto">    <img src="~/Picture/home_ad.jpg" /> </div> 
 </div>
 

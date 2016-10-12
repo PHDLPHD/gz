@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace gz
+namespace GZ
 {
     public class FilterConfig
     {

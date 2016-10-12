@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Optimization;
 
-namespace gz
+namespace GZ
 {
     public class BundleConfig
     {

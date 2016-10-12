@@ -11,7 +11,7 @@ namespace gz.Models
     {
 
         [DisplayName("账号")]
-        [Required(ErrorMessage = "账号不能为空！")]
+        [Required(ErrorMessage = "账号不能为空")]
         [StringLength(10, MinimumLength = 10, ErrorMessage = "账号必须为10位数字字母组合")]
         [RegularExpression("^[A-Za-z0-9]+$", ErrorMessage = "账号必须为10位数字字母组合")]
         public String MemberAccount { get; set; }
